@@ -2,7 +2,7 @@
   @forelse($products as $product)
   <div class="col-md-4 mb-4">
     <div class="card shadow">
-      <img src="{{ $product->image }}" class="card-img-top">
+      <img src="{{ asset($product->image) }}">
       <div class="card-body">
         <h5>{{ $product->name }}</h5>
         <p>{{ $product->description }}</p>
