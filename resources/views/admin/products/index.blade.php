@@ -2,14 +2,14 @@
 
 @section('content')
 <div class="container mt-5">
-    <div class="card p-4 shadow">
+    <div class="card p-4">
 
         <div class="d-flex justify-content-between mb-3">
             <h4>Admin Product</h4>
             <a href="{{ route('products.create') }}" class="btn btn-danger">+ Tambah</a>
         </div>
 
-        <table class="table table-hover">
+        <table class="table align-middle table-hover">
             <thead>
                 <tr>
                     <th>Image</th>
@@ -23,7 +23,8 @@
                 @foreach($products as $p)
                 <tr>
                     <td>
-                        <img src="{{ asset($p->image) }}" width="auto" height="auto" style="object-fit:cover;">
+                        <img src="{{ asset($p->image) }}"
+                             style="width:80px; height:60px; object-fit:cover; border-radius:8px;">
                     </td>
                     <td>{{ $p->name }}</td>
                     <td>Rp {{ number_format($p->price) }}</td>
@@ -35,8 +36,8 @@
                         </button>
 
                         <form id="delete-form-{{ $p->id }}"
-                            action="{{ route('products.destroy', $p->id) }}"
-                            method="POST" style="display:none;">
+                              action="{{ route('products.destroy', $p->id) }}"
+                              method="POST" style="display:none;">
                             @csrf
                             @method('DELETE')
                         </form>

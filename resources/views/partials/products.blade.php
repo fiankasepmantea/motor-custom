@@ -2,7 +2,9 @@
   @forelse($products as $product)
   <div class="col-md-4 mb-4">
     <div class="card shadow">
-      <img src="{{ asset($product->image) }}">
+     <img src="{{ asset($product->image) ?? 'https://via.placeholder.com/300' }}"
+     class="card-img-top"
+     style="height:220px; object-fit:cover;">
       <div class="card-body">
         <h5>{{ $product->name }}</h5>
         <p>{{ $product->description }}</p>

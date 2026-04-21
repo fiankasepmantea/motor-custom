@@ -2,8 +2,9 @@
 
 @section('content')
 <div class="container mt-5">
-    <div class="card p-4 shadow">
-        <h4 class="mb-4">Edit Product</h4>
+    <div class="card p-4">
+
+        <h4 class="mb-4 fw-bold text-danger">Edit Product</h4>
 
         <form method="POST" action="{{ route('products.update', $product->id) }}" enctype="multipart/form-data" onsubmit="handleSubmitEdit()">
             @csrf
@@ -25,13 +26,16 @@
 
             <div class="mb-3">
                 <label>Gambar Lama</label><br>
-                <img src="{{ asset($product->image) }}" width="120">
+                <img src="{{ asset($product->image) }}" style="width:120px; height:80px; object-fit:cover; border-radius:8px;">
             </div>
 
-            <input type="file" name="image" class="form-control mb-3">
+            <input type="file" name="image" class="form-control mb-3" onchange="previewImage(event)">
 
-            <button type="submit" class="btn btn-danger w-100" id="btnUpdate">Update</button>
+            <img id="preview" style="width:120px; display:none; margin-top:10px;">
+            
+            <button id="btnUpdate" class="btn btn-danger w-100">Update</button>
         </form>
+
     </div>
 </div>
 @endsection
@@ -41,6 +45,15 @@
 function handleSubmitEdit() {
     showLoading('Updating...');
     document.getElementById('btnUpdate').disabled = true;
+}
+function previewImage(event) {
+    const reader = new FileReader();
+    reader.onload = function(){
+        let output = document.getElementById('preview');
+        output.src = reader.result;
+        output.style.display = 'block';
+    }
+    reader.readAsDataURL(event.target.files[0]);
 }
 </script>
 @endpush
