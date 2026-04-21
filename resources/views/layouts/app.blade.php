@@ -70,6 +70,7 @@
         <div>
             <a href="/" class="btn btn-outline-light me-2">Home</a>
             <a href="/admin/products" class="btn btn-outline-light">Admin</a>
+            <a href="/admin/dashboard" class="btn btn-outline-light me-2">Dashboard</a>
         </div>
     </div>
 </nav>
