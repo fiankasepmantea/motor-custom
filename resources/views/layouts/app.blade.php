@@ -58,6 +58,27 @@
         .btn:hover {
             transform: scale(1.03);
         }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .card img {
+            transition: 0.3s;
+        }
+
+        .card:hover img {
+            transform: scale(1.05);
+        }
     </style>
 </head>
 

@@ -96,6 +96,12 @@ $(document).on('click', '.pagination a', function(e) {
     let url = $(this).attr('href');
     fetchProducts(url);
 });
+
+function resetFilter() {
+    $('#search').val('');
+    $('#category').val('');
+    fetchProducts();
+}
 </script>
 
 @endsection
